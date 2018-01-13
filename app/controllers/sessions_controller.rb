@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         @auth = Authorization.create_with_auth(auth)
       end
       user = @auth.user
+      log_in user
       redirect_back_or user
     else
       flash.now[:danger] = 'Authorization failed'
