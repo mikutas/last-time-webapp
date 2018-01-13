@@ -34,6 +34,8 @@ gem 'jbuilder', '2.7.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'omniauth-google-oauth2', '0.5.2'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.13'
