@@ -3,7 +3,6 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    # このコードは慣習的に正しくない
     @event = @user.events.build(title: "Lorem ipsum", user_id: @user.id)
   end
 
