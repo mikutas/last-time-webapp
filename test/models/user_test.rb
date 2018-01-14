@@ -51,4 +51,12 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
+
+  test "associated events should be destroyed" do
+    @user.save
+    @user.events.create!(title: "Lorem ipsum")
+    assert_difference 'Event.count', -1 do
+      @user.destroy
+    end
+  end
 end
