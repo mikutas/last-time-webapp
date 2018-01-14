@@ -35,6 +35,8 @@ gem 'jbuilder', '2.7.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'omniauth-google-oauth2', '0.5.2'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
