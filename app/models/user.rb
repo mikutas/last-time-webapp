@@ -5,7 +5,7 @@ class User < ApplicationRecord
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_many :events
+  has_many :events, dependent: :destroy
 
   def self.create_with_auth!(auth)
     self.create(email: auth['info']['email'])
