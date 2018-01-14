@@ -3,6 +3,10 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <p><%= link_to "Login with Google", '/auth/google_oauth2'%></p>
+    <p>
+      <%= link_to '/auth/google_oauth2', class: "btn btn-block btn-social btn-google" do %>
+        <span class="fa fa-google"></span> Googleアカウントでログイン
+      <% end %>
+    </p>
   </div>
 </div>
