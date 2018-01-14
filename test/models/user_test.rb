@@ -59,4 +59,12 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "associated authorizations should be destroyed" do
+    @user.save
+    @user.authorizations.create!(user_id: 1, uid: 1, provider: "Lorem ipsum")
+    assert_difference 'Authorization.count', -1 do
+      @user.destroy
+    end
+  end
 end
