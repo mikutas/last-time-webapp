@@ -1,0 +1,20 @@
+<% provide(:title, @event.title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @event.title %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.events.any? %>
+      <h3>Dates (<%= @event.occurred_dates.count %>)</h3>
+      <ol class="events">
+        <%= render @occurred_dates %>
+      </ol>
+      <%= will_paginate @occurred_dates %>
+    <% end %>
+  </div>
+</div>

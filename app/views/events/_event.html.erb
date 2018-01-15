@@ -1,6 +1,6 @@
 <li id="event-<%= event.id %>">
-  <%= link_to gravatar_for(event.user, size: 50), event.user %>
-  <span class="content"><%= event.title %></span>
+  <%#= link_to gravatar_for(event.user, size: 50), event.user %>
+  <span class="content"><%= link_to event.title, event_path(event.user.id, event.id) %></span>
   <span class="timestamp">
     Occurred <%= time_ago_in_words(event.created_at) %> ago.
   </span>
