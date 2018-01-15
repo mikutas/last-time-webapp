@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get    '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users, only: [:show]
+  get    '/users/:id/events/:eid', to: 'events#show', as: 'event'
 end
