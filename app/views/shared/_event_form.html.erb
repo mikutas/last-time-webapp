@@ -1,0 +1,7 @@
+<%= form_with url: addevent_path, model: Event.new do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: "Add new event..." %>
+  </div>
+  <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>

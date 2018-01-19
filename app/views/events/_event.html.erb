@@ -3,5 +3,8 @@
   <span class="content"><%= link_to event.title, event_path(event.user.id, event.id) %></span>
   <span class="timestamp">
     Occurred <%= time_ago_in_words(event.created_at) %> ago.
+    <% if current_user?(event.user) %>
+      <%= link_to "delete", event_path(event.user.id, event.id), method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
   </span>
 </li>
