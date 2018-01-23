@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = current_user.events.find_by_id(params[:eid])
+    @event = current_user.events.find_by_id(params[:id])
     @event.destroy
     flash[:success] = "Event deleted"
     redirect_to current_user
