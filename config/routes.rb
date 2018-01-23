@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get    '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users, only: [:show]
-  get    '/users/:id/events/:eid', to: 'events#show', as: 'event'
-  post   '/users/:id/events', to: 'events#create', as: 'addevent'
-  delete '/users/:id/events/:eid', to: 'events#destroy', as: 'delevent'
+  get    '/users/:id/events/:eid', to: 'events#show', as: 'show_event'
+  get    '/users/:id/events/:eid/new', to: 'occurred_dates#create', as: 'new_date'
+  resources :events, only: [:create, :destroy]
+  resources :occurred_dates, only: [:destroy]
 end
