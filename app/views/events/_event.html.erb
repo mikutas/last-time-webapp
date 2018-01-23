@@ -1,10 +1,13 @@
 <li id="event-<%= event.id %>">
   <%#= link_to gravatar_for(event.user, size: 50), event.user %>
-  <span class="content"><%= link_to event.title, event_path(event.user.id, event.id) %></span>
+  <span class="content"><%= link_to event.title, show_event_path(event.user.id, event.id) %></span>
   <span class="timestamp">
-    Occurred <%= time_ago_in_words(event.created_at) %> ago.
+    Occurred <%= time_ago_in_words(event.occurred_dates.last.created_at) %> ago.
     <% if current_user?(event.user) %>
-      <%= link_to "delete", event_path(event.user.id, event.id), method: :delete, data: { confirm: "You sure?" } %>
+      <br>
+      <%= link_to "new occurence", new_date_path(event.user.id, event.id), method: :get, data: { confirm: "You sure?" } %>
+      <br>
+      <%= link_to "delete event", event, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
   </span>
 </li>
