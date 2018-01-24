@@ -1,7 +1,7 @@
 <li id="occurred_date-<%= occurred_date.id %>">
   <span class="content"><%= occurred_date.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d (#{%w(日 月 火 水 木 金 土)[occurred_date.created_at.wday]})") %></span>
   <span class="timestamp">
-    Occurred <%= time_ago_in_words(occurred_date.created_at) %> ago.
+    <%= pluralize((Date.today - (occurred_date.created_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(occurred_date.event.user) %>
       <%= link_to "delete", occurred_date, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
