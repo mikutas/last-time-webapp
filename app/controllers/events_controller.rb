@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:title)
+      params.require(:event).permit(:title, :created_at)
     end
 
     def correct_user

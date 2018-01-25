@@ -1,7 +1,16 @@
 <%= form_with url: events_path, model: Event.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+
   <div class="field">
-    <%= f.text_field :title, placeholder: "Add new event..." %>
+    <%= f.label :title, t('views.payment.title').html_safe %>
+    <%= f.text_field :title %>
+    <%= f.label :date, t('views.payment.date').html_safe %>
+    <%= f.text_field :created_at,
+      data: { :date_format => 'YYYY/MM/DD HH:mm:ss' },
+      :class => 'form-control datetimepicker',
+      placeholder: 'YYYY/MM/DD HH:mm:ss'
+    %>
   </div>
-  <%= f.submit "Add", class: "btn btn-primary" %>
+
+  <%= f.submit "Add event", class: "btn btn-primary" %>
 <% end %>
