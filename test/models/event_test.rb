@@ -3,7 +3,7 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @event = @user.events.build(title: "Lorem ipsum", user_id: @user.id)
+    @event = @user.events.build(title: "Lorem ipsum", created_at: Time.zone.now)
   end
 
   test "user id should be present" do
@@ -17,9 +17,8 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "associated dates should be created and destroyed" do
-    @user.save
-    @event = @user.events.create!(title: "Lorem ipsum")
-    assert_equal @event.occurred_dates.count, 1
+    @event.save
+    assert_equal 1, @event.occurred_dates.count
     @user.destroy
     assert_equal Event.count, 0
     assert_equal OccurredDate.count, 0
