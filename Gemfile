@@ -40,6 +40,8 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'omniauth-google-oauth2', '0.5.2'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
