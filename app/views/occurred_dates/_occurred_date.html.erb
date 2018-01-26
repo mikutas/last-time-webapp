@@ -1,11 +1,11 @@
 <li id="occurred_date-<%= occurred_date.id %>">
-  <span class="content"><%= occurred_date.created_at %></span>
+  <span class="content"><%= occurred_date.created_at.to_date %></span>
   <span class="timestamp">
     <%= pluralize((Date.today - (occurred_date.created_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(occurred_date.event.user) %>
-      <br>
       <%= link_to occurred_date, method: :delete, data: { confirm: "You sure?" } do %>
-        <i class="glyphicon glyphicon-trash"></i> delete
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>delete</span>
       <% end %>
     <% end %>
   </span>
