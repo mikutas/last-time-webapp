@@ -8,5 +8,5 @@
 user = User.create!(email: "example@railstutorial.org")
 50.times do
     content = Faker::Lorem.sentence
-    user.events.create!(title: content)
+    user.events.create!(title: content, created_at: Time.zone.now)
 end
