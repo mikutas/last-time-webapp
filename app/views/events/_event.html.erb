@@ -1,5 +1,10 @@
 <li id="event-<%= event.id %>">
-  <span class="content"><%= link_to event.title, show_event_path(event.user.id, event.id) %></span>
+  <span class="content">
+    <%= link_to show_event_path(event.user.id, event.id) do %>
+      <i class="glyphicon glyphicon-tag"></i>
+      <span><%= event.title%></span>
+    <% end %>
+  </span>
   <span class="timestamp">
     <%= pluralize((Date.today - (event.occurred_dates.first.created_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(event.user) %>
