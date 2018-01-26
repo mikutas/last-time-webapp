@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users, only: [:show]
   get    '/users/:id/events/:eid', to: 'events#show', as: 'show_event'
-  get    '/users/:id/events/:eid/new', to: 'occurred_dates#create', as: 'new_date'
+  post    '/users/:id/events/:eid/create', to: 'occurred_dates#create', as: 'new_date'
   resources :events, only: [:create, :destroy]
   resources :occurred_dates, only: [:destroy]
 end
