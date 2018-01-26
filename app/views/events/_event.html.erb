@@ -5,7 +5,9 @@
     <%= pluralize((Date.today - (event.occurred_dates.first.created_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(event.user) %>
       <br>
-      <%= link_to "delete", event, method: :delete, data: { confirm: "You sure?" } %>
+      <%= link_to event, method: :delete , data: { confirm: "You sure?" } do %>
+        <i class="glyphicon glyphicon-trash"></i> delete
+      <% end %>
     <% end %>
   </span>
 </li>
