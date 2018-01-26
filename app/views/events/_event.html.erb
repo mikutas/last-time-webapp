@@ -1,12 +1,11 @@
 <li id="event-<%= event.id %>">
-  <%= link_to gravatar_for(event.user, size: 50), new_date_path(event.user.id, event.id), data: { confirm: "New done?" } %>
   <span class="content"><%= link_to event.title, show_event_path(event.user.id, event.id) %></span>
   <span class="timestamp">
     <%= pluralize((Date.today - (event.occurred_dates.first.created_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(event.user) %>
-      <br>
       <%= link_to event, method: :delete , data: { confirm: "You sure?" } do %>
-        <i class="glyphicon glyphicon-trash"></i> delete
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>delete</span>
       <% end %>
     <% end %>
   </span>
