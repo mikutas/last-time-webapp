@@ -42,6 +42,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem "bootstrap_form", "~> 2.7"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
