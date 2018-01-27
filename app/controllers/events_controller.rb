@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user,   only: :destroy
+  before_action :already_exists?, only: :create
 
   def create
     @event = current_user.events.build(event_params)
@@ -8,7 +9,8 @@ class EventsController < ApplicationController
       flash[:success] = "Event created!"
       redirect_to current_user
     else
-      render 'static_pages/home'
+      flash[:danger] = "Failed to create event"
+      redirect_to current_user
     end
   end
 
@@ -33,5 +35,12 @@ class EventsController < ApplicationController
     def correct_user
       @event = current_user.events.find_by(id: params[:id])
       redirect_to root_url if @event.nil?
+    end
+
+    def already_exists?
+      if current_user.events.exists?(title: params[:event][:title])
+        flash[:danger] = "The event already exists."
+        redirect_to current_user
+      end
     end
 end
