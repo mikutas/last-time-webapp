@@ -1,1 +1,1 @@
-$ -> $(".datetimepicker").datetimepicker()
+$(document).on 'turbolinks:load', -> $(".datetimepicker").datetimepicker()
