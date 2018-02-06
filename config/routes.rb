@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get    '/about',   to: 'static_pages#about'
   get    '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :destroy]
   get    '/users/:id/events/:eid', to: 'events#show', as: 'show_event'
   post    '/users/:id/events/:eid/create', to: 'occurred_dates#create', as: 'new_date'
   resources :events, only: [:create, :destroy]
