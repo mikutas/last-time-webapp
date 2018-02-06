@@ -1,0 +1,14 @@
+<% provide(:title, "Delete account") %>
+<h1>Delete account</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    アカウントを削除すると、イベントのデータはすべて削除され、復元することはできません。
+  </div>
+  <div class="col-md-2 col-md-offset-5">
+    <%= link_to user_path, method: 'delete', class: "btn btn-danger", data: { confirm: "You sure?" } do %>
+      <span class="glyphicon glyphicon-trash"></span> Delete my account
+    <% end %>
+  </div>
+</div>
