@@ -7,6 +7,15 @@ class UsersController < ApplicationController
     @events = @user.events.paginate(page: params[:page])
   end
 
+  def edit
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "Your account is successfully deleted"
+    redirect_to root_url
+  end
+
   private
 
     # 正しいユーザーかどうか確認
