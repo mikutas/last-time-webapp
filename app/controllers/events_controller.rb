@@ -9,14 +9,14 @@ class EventsController < ApplicationController
       flash[:success] = "Event created!"
       redirect_to current_user
     else
-      flash[:danger] = "Failed to create event"
+      flash[:danger] = "Failed to create event."
       redirect_to current_user
     end
   end
 
   def destroy
     @event.destroy
-    flash[:success] = "Event deleted"
+    flash[:success] = "Event deleted."
     redirect_to current_user
   end
 
