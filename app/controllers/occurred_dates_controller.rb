@@ -8,9 +8,9 @@ class OccurredDatesController < ApplicationController
     redirect_to root_url if @event.nil?
     @occurred_date = @event.occurred_dates.build(occurred_date_params)
     if @occurred_date.save
-      flash[:success] = 'Event updated'
+      flash[:success] = 'Event updated.'
     else
-      flash[:danger] = 'Event update failed'
+      flash[:danger] = 'Event update failed.'
     end
     redirect_to show_event_path(@user.id, @event.id)
   end
