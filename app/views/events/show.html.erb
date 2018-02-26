@@ -13,11 +13,11 @@
       </h1>
     </section>
     <section class="date_form">
-      <%= render 'shared/occurred_date_form' %>
+      <%= render 'shared/occurred_date_form', {event: @event} %>
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @user.events.any? %>
+    <% if @event.occurred_dates.any? %>
       <h3>Dates (<%= @event.occurred_dates.count %>)</h3>
       <ol class="events">
         <%= render @occurred_dates %>
