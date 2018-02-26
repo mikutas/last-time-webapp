@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get    '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users, only: [:show, :edit, :destroy]
-  get    '/users/:id/events/:eid', to: 'events#show', as: 'show_event'
-  post    '/users/:id/events/:eid/create', to: 'occurred_dates#create', as: 'new_date'
-  resources :events, only: [:create, :destroy]
-  resources :occurred_dates, only: [:destroy]
+  resources :events, only: [:show, :create, :destroy]
+  resources :occurred_dates, only: [:create, :destroy]
 end
