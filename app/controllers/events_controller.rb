@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user,   only: [:show, :destroy]
   before_action :already_exists?, only: :create
 
   def create
@@ -21,8 +21,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @event = @user.events.find(params[:eid])
     @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
   end
 
