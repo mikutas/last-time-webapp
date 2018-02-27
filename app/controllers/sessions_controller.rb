@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_back_or user
     else
-      flash.now[:danger] = 'Authorization failed'
+      flash.now[:danger] = 'Authorization failed.'
       render 'new'
     end
   end
