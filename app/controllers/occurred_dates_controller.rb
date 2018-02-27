@@ -15,7 +15,12 @@ class OccurredDatesController < ApplicationController
 
   def destroy
     eid = @occurred_date.event_id
-    @occurred_date.destroy
+    if @occurred_date.event.occurred_dates.count == 1
+      flash[:danger] = 'Cannot delete last one date.'
+    else
+      flash[:success] = 'Date deleted.'
+      @occurred_date.destroy
+    end
     redirect_to event_path(eid)
   end
 
