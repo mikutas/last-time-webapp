@@ -15,7 +15,7 @@ class OccurredDatesController < ApplicationController
 
   def destroy
     eid = @occurred_date.event_id
-    if @occurred_date.event.occurred_dates.count == 1
+    if @occurred_date.event.occurred_dates.size == 1
       flash[:danger] = 'Cannot delete last one date.'
     else
       flash[:success] = 'Date deleted.'
