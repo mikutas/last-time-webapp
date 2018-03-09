@@ -13,7 +13,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.events.any? %>
-      <h3>Events (<%= @user.events.count %>)</h3>
+      <h3><%= pluralize(@user.events.count, "event") %></h3>
       <ol class="events">
         <%= render @events %>
       </ol>

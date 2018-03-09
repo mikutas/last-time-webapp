@@ -18,7 +18,7 @@
   </aside>
   <div class="col-md-8">
     <% if @event.occurred_dates.any? %>
-      <h3>Dates (<%= @event.occurred_dates.count %>)</h3>
+      <h3><%= pluralize(@event.occurred_dates.count, "date") %></h3>
       <ol class="events">
         <%= render @occurred_dates %>
       </ol>
