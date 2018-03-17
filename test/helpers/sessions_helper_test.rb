@@ -11,4 +11,10 @@ class SessionsHelperTest < ActionView::TestCase
     assert_equal @user, current_user
     assert current_user?(@user)
   end
+
+  test "log out" do
+    log_in(@user)
+    log_out
+    assert_not logged_in?
+  end
 end
