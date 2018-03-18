@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
     if auth.present?
       unless @auth = Authorization.find_by_auth(auth)
         @auth = Authorization.create_with_auth(auth)
+      else
+        @auth.user.update_attributes(email: auth['info']['email']) if @auth.user.email.casecmp(auth['info']['email']) != 0
       end
       user = @auth.user
       log_in user
