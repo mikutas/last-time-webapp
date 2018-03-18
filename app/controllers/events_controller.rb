@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user,   only: [:show, :edit, :update, :destroy]
-  before_action :already_exists?, only: :create
 
   def create
     @event = current_user.events.build(event_params)
@@ -43,13 +42,6 @@ class EventsController < ApplicationController
       @event = current_user.events.find_by(id: params[:id])
       if @event.nil?
         flash[:danger] = "Event not found."
-        redirect_to current_user
-      end
-    end
-
-    def already_exists?
-      if current_user.events.exists?(title: params[:event][:title])
-        flash[:danger] = "The event already exists."
         redirect_to current_user
       end
     end
