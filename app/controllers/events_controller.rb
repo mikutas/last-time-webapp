@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,   only: [:show, :destroy]
+  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
   before_action :already_exists?, only: :create
 
   def create
@@ -25,9 +25,12 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
   end
 
   def update
+    @event.update_attributes(title: params[:title])
+    redirect_to @event
   end
 
   private
