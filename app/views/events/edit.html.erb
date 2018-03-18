@@ -9,11 +9,11 @@
       </h1>
       <h1>
         <i class="glyphicon glyphicon-tag"></i>
-        <%= link_to @event.title, edit_event_path(@event.id) %>
+        <%= @event.title %>
       </h1>
     </section>
-    <section class="date_form">
-      <%= render 'shared/occurred_date_form', {event: @event} %>
+    <section>
+      <%= render 'shared/edit_event_form', event: @event %>
     </section>
   </aside>
   <div class="col-md-8">
