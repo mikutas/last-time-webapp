@@ -32,7 +32,10 @@ class EventsController < ApplicationController
 
     def correct_user
       @event = current_user.events.find_by(id: params[:id])
-      redirect_to root_url if @event.nil?
+      if @event.nil?
+        flash[:danger] = "Event not found."
+        redirect_to current_user
+      end
     end
 
     def already_exists?
