@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update_attributes(title: params[:title])
+    flash[:danger] = 'Failed to update event.' unless @event.update_attributes(title: params[:title])
     redirect_to @event
   end
 
