@@ -24,6 +24,12 @@ class EventsController < ApplicationController
     @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
     def event_params
