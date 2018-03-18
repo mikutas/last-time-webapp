@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get    '/auth/:provider/callback', to: 'sessions#create', as: 'login'
   delete '/logout',  to: 'sessions#destroy'
   resources :users, only: [:show, :edit, :destroy]
-  resources :events, only: [:show, :create, :destroy]
+  resources :events, only: [:show, :edit, :update, :create, :destroy]
   resources :occurred_dates, only: [:create, :destroy]
 end
