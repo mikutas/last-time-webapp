@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   belongs_to :user
   default_scope -> { order(updated_at: :desc) }
   validates_presence_of :user_id, :title, :created_at
+  validates_uniqueness_of :title, uniqueness: {:scope => :user_id}
   has_many :occurred_dates, dependent: :delete_all
 
   private
