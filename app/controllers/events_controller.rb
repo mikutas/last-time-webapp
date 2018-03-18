@@ -24,7 +24,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
+    respond_to do |format|
+      format.html{
+        @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
+      }
+      format.js
+    end
   end
 
   def update
