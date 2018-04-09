@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409131122) do
+ActiveRecord::Schema.define(version: 20180409131941) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string "provider"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20180409131122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "occurred_at"
-    t.index ["created_at"], name: "index_occurred_dates_on_created_at"
     t.index ["event_id"], name: "index_occurred_dates_on_event_id"
+    t.index ["occurred_at"], name: "index_occurred_dates_on_occurred_at"
   end
 
   create_table "users", force: :cascade do |t|
