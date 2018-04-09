@@ -28,3 +28,6 @@ config/secrets.yml.key
 
 # Ignore coverage report generated at local
 /coverage/
+
+# Ignore bundler gems.
+vendor/bundle
