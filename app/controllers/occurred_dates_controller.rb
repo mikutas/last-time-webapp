@@ -27,7 +27,7 @@ class OccurredDatesController < ApplicationController
   private
 
     def occurred_date_params
-      params.require(:occurred_date).permit(:created_at)
+      params.require(:occurred_date).permit(:occurred_at)
     end
 
     def correct_user
