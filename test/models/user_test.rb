@@ -54,7 +54,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated events should be destroyed" do
     @user.save
-    @user.events.create!(title: "Lorem ipsum", first_occurred_at: Time.zone.now)
+    @user.events.create!(title: "Lorem ipsum", occurred_at: Time.zone.now)
     assert_difference 'Event.count', -1 do
       @user.destroy
     end

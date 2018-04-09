@@ -3,7 +3,7 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @event = @user.events.build(title: "Lorem ipsum", first_occurred_at: Time.zone.now)
+    @event = @user.events.build(title: "Lorem ipsum", occurred_at: Time.zone.now)
   end
 
   test "user id should be present" do
