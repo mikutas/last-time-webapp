@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events.paginate(page: params[:page]).includes(:occurred_dates).order("occurred_dates.occurred_at DESC")
+    @events = @user.events.paginate(page: params[:page]).order("first_occurred_at DESC")
   end
 
   def edit
