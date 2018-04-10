@@ -6,7 +6,7 @@
     <% end %>
   </span>
   <span class="timestamp">
-    <%= pluralize((Date.current - (event.occurred_dates.first.occurred_at.to_date)).numerator, "day") %> ago.
+    <%= pluralize((Date.current - (event.occurred_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(event.user) %>
       <%= link_to event, method: :delete , data: { confirm: "You sure?" } do %>
         <i class="glyphicon glyphicon-trash"></i>
