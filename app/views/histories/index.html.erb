@@ -3,13 +3,13 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= link_to current_user do %>
+        <%= link_to user_events_path(@event.user.id) do %>
           <i class="glyphicon glyphicon-step-backward"></i> back
         <% end %>
       </h1>
       <h1>
         <i class="glyphicon glyphicon-tag"></i>
-        <%= link_to @event.title, edit_event_path(@event.id), remote: true %>
+        <%= link_to @event.title, edit_user_event_path(@event.user.id, @event.id), remote: true %>
       </h1>
     <section class="forms">
       <div id="edit_form"></div>

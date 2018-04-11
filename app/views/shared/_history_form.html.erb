@@ -1,4 +1,4 @@
-<%= bootstrap_form_for History.new do |f| %>
+<%= bootstrap_form_for History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
   <div class="field">
     <%= render 'shared/datetimepicker', {f: f} %>
   </div>

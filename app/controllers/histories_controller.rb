@@ -1,16 +1,19 @@
 class HistoriesController < ApplicationController
-  before_action :logged_in_user
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, :correct_user, :set_event
+  before_action :set_history, only: [:destroy]
+
+  def index
+    @histories = @event.histories.paginate(page: params[:page])
+  end
 
   def create
-    @event = current_user.events.find_by_id(params[:history][:event_id])
     @history = @event.histories.build(history_params)
     if @history.save
       flash[:success] = 'Event updated.'
     else
       flash[:danger] = 'Event update failed.'
     end
-    redirect_to event_path(@event.id)
+    redirect_to user_event_histories_path(@event.user.id, @event.id)
   end
 
   def destroy
@@ -21,7 +24,7 @@ class HistoriesController < ApplicationController
       flash[:success] = 'Date deleted.'
       @history.destroy
     end
-    redirect_to event_path(eid)
+    redirect_to user_event_histories_path(@user.id, eid)
   end
 
   private
@@ -30,8 +33,20 @@ class HistoriesController < ApplicationController
       params.require(:history).permit(:occurred_at)
     end
 
+    def set_event
+      @event = @user.events.find(params[:event_id])
+    end
+
+    def set_history
+      @history = @event.histories.find(params[:id])
+    end
+
+    # 正しいユーザーかどうか確認
     def correct_user
-      @history = History.find_by_id(params[:id])
-      redirect_to root_url unless @history.event.user == current_user
+      @user = User.find(params[:user_id])
+      unless current_user?(@user)
+        flash[:danger] = 'Wrong user.'
+        redirect_to root_url
+      end
     end
 end
