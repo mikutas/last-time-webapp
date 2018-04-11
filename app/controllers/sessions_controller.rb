@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       end
       user = @auth.user
       log_in user
-          redirect_to user_events_path(user.id)
+      redirect_to user_events_path(user.id)
     else
       flash.now[:danger] = 'Authorization failed.'
       redirect_to root_url
