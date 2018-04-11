@@ -14,17 +14,17 @@
     <section class="forms">
       <div id="edit_form"></div>
       <div>
-        <%= render 'shared/occurred_date_form', {event: @event} %>
+        <%= render 'shared/history_form', {event: @event} %>
       </div>
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @event.occurred_dates.any? %>
-      <h3><%= pluralize(@event.occurred_dates.count, "date") %></h3>
+    <% if @event.histories.any? %>
+      <h3><%= pluralize(@event.histories.count, "date") %></h3>
       <ol class="events">
-        <%= render @occurred_dates %>
+        <%= render @histories %>
       </ol>
-      <%= will_paginate @occurred_dates %>
+      <%= will_paginate @histories %>
     <% end %>
   </div>
 </div>

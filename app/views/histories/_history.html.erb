@@ -1,0 +1,12 @@
+<li id="history-<%= history.id %>">
+  <span class="content"><%= history.occurred_at.strftime('%Y/%m/%d %H:%M') %></span>
+  <span class="timestamp">
+    <%= pluralize((Date.current - (history.occurred_at.to_date)).numerator, "day") %> ago.
+    <% if current_user?(history.event.user) %>
+      <%= link_to history, method: :delete, data: { confirm: "You sure?" } do %>
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>delete</span>
+      <% end %>
+    <% end %>
+  </span>
+</li>

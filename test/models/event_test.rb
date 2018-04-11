@@ -17,10 +17,10 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "associated dates should be created and destroyed" do
-    assert_difference 'OccurredDate.count', 1 do
+    assert_difference 'History.count', 1 do
       @event.save
     end
-    assert_difference 'OccurredDate.count', -1 do
+    assert_difference 'History.count', -1 do
       @event.destroy
     end
   end

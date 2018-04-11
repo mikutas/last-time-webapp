@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OccurredDatesControllerTest < ActionDispatch::IntegrationTest
+class HistoriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
