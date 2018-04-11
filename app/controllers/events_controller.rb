@@ -19,13 +19,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
+    @histories = @event.histories.paginate(page: params[:page])
   end
 
   def edit
     respond_to do |format|
       format.html{
-        @occurred_dates = @event.occurred_dates.paginate(page: params[:page])
+        @histories = @event.histories.paginate(page: params[:page])
       }
       format.js
     end
