@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get    '/about',   to: 'static_pages#about'
   get    '/auth/:provider/callback', to: 'sessions#create', as: 'login'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users, only: [:show, :edit, :destroy]
-  resources :events, only: [:show, :edit, :update, :create, :destroy]
-  resources :histories, only: [:create, :destroy]
+  resources :users, only: [:edit, :destroy] do
+    resources :events, only: [:index, :edit, :update, :create, :destroy] do
+      resources :histories, only: [:index, :create, :destroy]
+    end
+  end
 end

@@ -1,6 +1,6 @@
 <li id="event-<%= event.id %>">
   <span class="title">
-    <%= link_to event_path(event.id) do %>
+    <%= link_to user_event_histories_path(event.user.id, event.id) do %>
       <i class="glyphicon glyphicon-tag"></i>
       <span><%= event.title%></span>
     <% end %>
@@ -8,7 +8,7 @@
   <span class="timestamp">
     <%= pluralize((Date.current - (event.occurred_at.to_date)).numerator, "day") %> ago.
     <% if current_user?(event.user) %>
-      <%= link_to event, method: :delete , data: { confirm: "You sure?" } do %>
+      <%= link_to user_event_path(event.user.id, event.id), method: :delete , data: { confirm: "You sure?" } do %>
         <i class="glyphicon glyphicon-trash"></i>
         <span>delete</span>
       <% end %>
