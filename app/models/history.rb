@@ -1,9 +1,9 @@
 class History < ApplicationRecord
   after_save :update_event_after_save
   before_destroy :update_event_before_destroy
+  validates_presence_of :occurred_at
   belongs_to :event
   default_scope -> { order(occurred_at: :desc) }
-  validates_presence_of :occurred_at
 
   private
 
