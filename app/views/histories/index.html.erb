@@ -20,7 +20,7 @@
   </aside>
   <div class="col-md-8">
     <% if @event.histories.any? %>
-      <h3><%= pluralize(@event.histories.count, "date") %></h3>
+      <h3><%= pluralize(@event.histories.count, "time") %></h3>
       <ol class="events">
         <%= render @histories %>
       </ol>
