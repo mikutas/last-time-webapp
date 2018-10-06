@@ -9,7 +9,6 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.0'
 gem 'bootsnap', '1.3.0'
-gem 'bootstrap-sass', '3.3.7'
 # Use Puma as the app server
 gem 'puma', '3.9.1'
 # Use SCSS for stylesheets
@@ -43,7 +42,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-gem "bootstrap_form", "~> 2.7"
+gem 'bootstrap', '4.1.3'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
