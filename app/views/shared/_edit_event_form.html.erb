@@ -1,6 +1,4 @@
-<%= bootstrap_form_tag url: user_event_path, method: :patch do |f| %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: 'New event title' %>
-  </div>
-  <%= f.submit "Update event", class: "btn btn-primary" %>
+<%= form_tag user_event_path, method: :patch do %>
+  <%= text_field :event, :title %>
+  <%= submit_tag "Update event", class: "btn btn-primary" %>
 <% end %>

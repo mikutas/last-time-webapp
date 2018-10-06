@@ -1,20 +1,20 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <%= link_to "when is the last time?", root_path, id: "logo" %>
+    <%= link_to "When is the last time?", root_path, class: "navbar-brand" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Help", '/help' %></li>
+      <ul class="nav navbar-nav mr-auto">
+        <li><%= link_to "Help", '/help', class: "nav-link" %></li>
         <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
             </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "My events", user_events_path(current_user.id) %></li>
-              <li><%= link_to "Delete account", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "My events", user_events_path(current_user.id), class: "dropdown-item" %></li>
+              <li><%= link_to "Delete account", edit_user_path(current_user), class: "dropdown-item" %></li>
+              <li class="dropdown-divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
+                <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
               </li>
             </ul>
           </li>

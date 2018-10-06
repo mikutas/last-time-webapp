@@ -1,4 +1,4 @@
-<%= bootstrap_form_for History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
+<%= form_for History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
   <%= render 'shared/datetimepicker', {f: f} %>
   <%= f.hidden_field :event_id, :value => event.id %>
   <%= f.submit "Add date", class: "btn btn-primary" %>
