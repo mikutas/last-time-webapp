@@ -10,4 +10,12 @@ class Event < ApplicationRecord
     def create_first_date
       self.histories.create(occurred_at: self.occurred_at)
     end
+
+    def self.search(term)
+      if term
+        where(['title LIKE ?', "%#{term}%"])
+      else
+        all
+      end
+    end
 end

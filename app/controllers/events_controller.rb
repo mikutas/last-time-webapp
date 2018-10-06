@@ -3,7 +3,10 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:destroy, :edit, :update]
 
   def index
-    @events = @user.events.paginate(page: params[:page]).order("occurred_at DESC")
+    @events = @user.events.paginate(page: params[:page], per_page: 10).order("occurred_at DESC")
+    if params[:event]
+      @events = @events.search(params[:event][:term])
+    end
   end
 
   def create
@@ -32,14 +35,14 @@ class EventsController < ApplicationController
   end
 
   def update
-    flash[:danger] = 'Failed to update event.' unless @event.update_attributes(title: params[:title])
+    flash[:danger] = 'Failed to update event.' unless @event.update_attributes(event_params)
     redirect_to user_event_histories_path(@event.user.id, @event.id)
   end
 
   private
 
     def event_params
-      params.require(:event).permit(:title, :occurred_at)
+      params.require(:event).permit(:title, :occurred_at, :term)
     end
 
     def set_event
