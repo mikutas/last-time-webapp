@@ -1,7 +1,5 @@
 <%= bootstrap_form_for Event.new, url: user_events_path(user.id) do |f| %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: 'Event title' %>
-    <%= render 'shared/datetimepicker', {f: f} %>
-  </div>
+  <%= f.text_field :title, placeholder: 'Event title' %>
+  <%= render 'shared/datetimepicker', {f: f} %>
   <%= f.submit "Create event", class: "btn btn-primary" %>
 <% end %>
