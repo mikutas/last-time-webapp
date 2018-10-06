@@ -12,8 +12,12 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <%= form_tag user_events_path(@user.id), method: :get do %>
+      <%= text_field :event, :term %>
+      <%= submit_tag "Search event", name: nil, class: "btn btn-primary" %>
+    <% end %>
     <% if @user.events.any? %>
-      <h3><%= pluralize(@user.events.count, "event") %></h3>
+      <h3><%= pluralize(@events.count, "event") %></h3>
       <ol class="events">
         <%= render @events %>
       </ol>
