@@ -25,5 +25,7 @@ module SampleApp
       g.helper          false
       g.channel         assets: false
     end
+
+    WillPaginate.per_page = 10
   end
 end

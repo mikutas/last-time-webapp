@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:destroy, :edit, :update]
 
   def index
-    @events = @user.events.paginate(page: params[:page], per_page: 10).order("occurred_at DESC")
+    @events = @user.events.paginate(page: params[:page]).order("occurred_at DESC")
     if params[:event]
       @events = @events.search(params[:event][:term])
     end
