@@ -41,6 +41,7 @@ gem 'omniauth-google-oauth2', '0.5.2'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap', '4.1.3'
+gem 'webpacker', '3.5.5'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
