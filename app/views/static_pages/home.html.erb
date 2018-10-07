@@ -1,10 +1,10 @@
-<div class="center jumbotron">
+<div class="center jumbotron d-flex flex-column align-items-center">
   <h1>Look back <b>WHAT & WHEN</b> you did</h1>
   <% unless logged_in? %>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col">
         <p>
-          <%= link_to '/auth/google_oauth2', class: "btn btn-block btn-social btn-google" do %>
+          <%= link_to '/auth/google_oauth2', class: "btn btn-primary btn-social btn-google" do %>
             <span class="fa fa-google"></span> Sign in with Google
           <% end %>
         </p>
