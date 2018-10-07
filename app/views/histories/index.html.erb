@@ -24,7 +24,7 @@
       <ol class="events">
         <%= render @histories %>
       </ol>
-      <%= will_paginate @histories %>
+      <%= will_paginate @histories, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     <% end %>
   </div>
 </div>
