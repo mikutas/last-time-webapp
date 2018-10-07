@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_04_11_123819) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authorizations", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_04_11_123819) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "occurred_at"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_04_11_123819) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.integer "event_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "occurred_at"
@@ -40,11 +43,13 @@ ActiveRecord::Schema.define(version: 2018_04_11_123819) do
     t.index ["occurred_at"], name: "index_histories_on_occurred_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "histories", "events"
 end
