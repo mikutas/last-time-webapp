@@ -1,6 +1,6 @@
 <% provide(:title, 'My events') %>
 <div class="row">
-  <aside class="col">
+  <aside class="col-4">
     <section class="user_info">
       <h1 class="fa fa-user">
         <%= @user.email %>
@@ -20,7 +20,9 @@
       <ol class="events">
         <%= render @events %>
       </ol>
-      <%= will_paginate @events, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      <div class='d-flex flex-column align-items-center'>
+        <%= will_paginate @events, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
     <% end %>
   </div>
 </div>
