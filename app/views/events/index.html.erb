@@ -2,8 +2,7 @@
 <div class="row">
   <aside class="col">
     <section class="user_info">
-      <h1>
-        <i class="glyphicon glyphicon-user"></i>
+      <h1 class="fa fa-user">
         <%= @user.email %>
       </h1>
     </section>
@@ -14,7 +13,7 @@
   <div class="col-8">
     <%= form_tag user_events_path(@user.id), method: :get do %>
       <%= text_field :event, :term, class: "form-control search" %>
-      <%= submit_tag "Search event", name: nil, class: "btn btn-primary" %>
+      <%= submit_tag "Search event", name: nil, class: "btn btn-secondary" %>
     <% end %>
     <% if @user.events.any? %>
       <h3><%= pluralize(@events.count, "event") %></h3>

@@ -48,7 +48,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-//  color: $gray-light;
 }
 
 p {
@@ -136,7 +135,6 @@ input {
 }
 
 .field_with_errors {
-//  @extend .has-error;
   .form-control {
     color: $gray-medium-light;
   }
@@ -162,7 +160,6 @@ input {
     }
   }
   .timestamp {
-//    color: $gray-light;
     display: block;
   }
   .glyphicon glyphicon-tag {
