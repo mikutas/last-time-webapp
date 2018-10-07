@@ -2,13 +2,13 @@
 <div class="row">
   <aside class="col">
     <section class="user_info">
-      <h1>
+      <h1 class="fa fa-step-backward">
         <%= link_to user_events_path(@event.user.id) do %>
-          <i class="glyphicon glyphicon-step-backward"></i> back
+          back
         <% end %>
       </h1>
-      <h1>
-        <i class="glyphicon glyphicon-tag"></i>
+      <br>
+      <h1 class="fa fa-calendar">
         <%= link_to @event.title, edit_user_event_path(@event.user.id, @event.id), remote: true %>
       </h1>
     <section class="forms">
