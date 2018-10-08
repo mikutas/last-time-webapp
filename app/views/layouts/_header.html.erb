@@ -3,28 +3,36 @@
     <%= link_to "When is the last time?", root_path, class: "navbar-brand", id: "logo" %>
     <nav>
       <ul class="nav navbar-nav mr-auto">
-        <li><%= link_to "About",   about_path, class: "nav-link" %></li>
-        <li><%= link_to "Help", '/help', class: "nav-link" %></li>
+        <li>
+          <%= link_to about_path, class: "nav-link" do %>
+            <i class='fa fa-info-circle'> About</i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'https://github.com/tkms0106/last-time-webapp/blob/master/README.md', class: "nav-link" do %>
+            <i class='fa fa-question-circle'> Help</i>
+          <% end %>
+        </li>
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
+              <i class='fa fa-user-circle'> Account</i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <%= link_to user_events_path(current_user.id), class: "dropdown-item fa fa-calendar" do %>
-                  My events
+                <%= link_to user_events_path(current_user.id), class: "dropdown-item" do %>
+                  <i class='fa fa-calendar'> My events</i>
                 <% end %>
               </li>
               <li>
-                <%= link_to edit_user_path(current_user), class: "dropdown-item fa fa-trash" do %>
-                  Delete account
+                <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
+                  <i class='fa fa-exclamation-triangle'> Delete account</i>
                 <% end %>
               </li>
               <li class="dropdown-divider"></li>
               <li>
-                <%= link_to logout_path, method: :delete, class: "dropdown-item fa fa-sign-out" do %>
-                  Sign out
+                <%= link_to logout_path, method: :delete, class: "dropdown-item" do %>
+                  <i class='fa fa-sign-out'> Sign out</i>
                 <% end %>
               </li>
             </ul>
