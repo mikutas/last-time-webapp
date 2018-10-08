@@ -1,14 +1,14 @@
 <% provide(:title, @event.title) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-4">
     <section class="user_info">
       <h1>
         <%= link_to user_events_path(@event.user.id) do %>
-          <i class="glyphicon glyphicon-step-backward"></i> back
+          <i class="fa fa-step-backward"></i> Back
         <% end %>
       </h1>
       <h1>
-        <i class="glyphicon glyphicon-tag"></i>
+        <i class="fa fa-calendar"></i>
         <%= @event.title %>
       </h1>
     </section>
@@ -16,7 +16,7 @@
       <%= render 'shared/edit_event_form', event: @event %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-8">
     <% if @event.histories.any? %>
       <h3><%= pluralize(@event.histories.count, "date") %></h3>
       <ol class="events">
