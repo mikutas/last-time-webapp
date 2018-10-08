@@ -3,19 +3,19 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
+    <%= render "layouts/shim" %>
     <%= favicon_link_tag %>
-    <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag "application" %>
+    <%= stylesheet_pack_tag "application" %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
+    <%= render "layouts/header" %>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= render "layouts/footer" %>
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>

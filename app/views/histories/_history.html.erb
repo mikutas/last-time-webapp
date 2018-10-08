@@ -1,9 +1,9 @@
 <li id="history-<%= history.id %>">
-  <span class="content fa fa-check"> <%= history.occurred_at.strftime('%Y/%m/%d %H:%M') %></span>
+  <span class="content fa fa-check"> <%= history.occurred_at.strftime("%Y/%m/%d %H:%M") %></span>
   <span class="timestamp">
     <%= pluralize((Date.current - (history.occurred_at.to_date)).numerator, "day") %> ago
     <% if current_user?(history.event.user) %>
-      <%= link_to user_event_history_path(history.event.user.id, history.event.id, history.id), method: :delete, data: { confirm: "You sure?" }, class: 'fa fa-trash' do %>
+      <%= link_to user_event_history_path(history.event.user.id, history.event.id, history.id), method: :delete, data: { confirm: "You sure?" }, class: "fa fa-trash" do %>
         delete
       <% end %>
     <% end %>
