@@ -1,5 +1,5 @@
 <%= form_for Event.new, url: user_events_path(user.id) do |f| %>
-  <%= f.text_field :title, placeholder: 'Event title' %>
+  <%= f.text_field :title, placeholder: 'Event title', class: "form-control" %>
   <%= render 'shared/datetimepicker', {f: f} %>
   <%= f.submit "Create event", class: "btn btn-secondary" %>
 <% end %>

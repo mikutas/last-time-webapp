@@ -2,8 +2,10 @@
 <div class="row">
   <aside class="col-4">
     <section class="user_info">
-      <h1 class="fa fa-user">
-        <%= @user.email %>
+      <h1>
+        <div class='fa fa-user'>
+          <%= @user.email %>
+        </div>
       </h1>
     </section>
     <section class="event_form">
@@ -11,10 +13,8 @@
     </section>
   </aside>
   <div class="col-8">
-    <%= form_tag user_events_path(@user.id), method: :get do %>
-      <%= text_field :event, :term, class: "form-control search" %>
-      <%= submit_tag "Search event", name: nil, class: "btn btn-secondary" %>
-    <% end %>
+    <%= render 'shared/search_event_form' %>
+
     <% if @user.events.any? %>
       <h3><%= pluralize(@events.count, "event") %></h3>
       <ol class="events">
