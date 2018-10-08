@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(email: "example@railstutorial.org")
-50.times do
+50.times do |i|
 	content = Faker::Lorem.sentence
-	user.events.create!(title: content, created_at: Time.zone.now)
+	User.first.events.create!(title: content, created_at: Time.zone.now, occurred_at: Time.zone.now - i.days)
 end
