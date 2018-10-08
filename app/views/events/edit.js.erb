@@ -1,1 +1,1 @@
-$('#edit_form').html("<%= j (render 'shared/edit_event_form', {user: @user, event: @event} ) %>");
+$("#edit_form").html("<%= escape_javascript(render 'shared/edit_event_form') %>");
