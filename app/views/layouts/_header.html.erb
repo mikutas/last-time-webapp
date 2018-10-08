@@ -11,10 +11,22 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "My events", user_events_path(current_user.id), class: "dropdown-item fa fa-calendar" %></li>
-              <li><%= link_to "Delete account", edit_user_path(current_user), class: "dropdown-item fa fa-trash" %></li>
+              <li>
+                <%= link_to user_events_path(current_user.id), class: "dropdown-item fa fa-calendar" do %>
+                  My events
+                <% end %>
+              </li>
+              <li>
+                <%= link_to edit_user_path(current_user), class: "dropdown-item fa fa-trash" do %>
+                  Delete account
+                <% end %>
+              </li>
               <li class="dropdown-divider"></li>
-              <li><%= link_to "Sign out", logout_path, method: :delete, class: "dropdown-item fa fa-sign-out" %></li>
+              <li>
+                <%= link_to logout_path, method: :delete, class: "dropdown-item fa fa-sign-out" do %>
+                  Sign out
+                <% end %>
+              </li>
             </ul>
           </li>
         <% end %>
