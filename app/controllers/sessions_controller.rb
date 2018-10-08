@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    auth = request.env["omniauth.auth"]
+    auth = request.env['omniauth.auth']
     if auth.present?
       unless @auth = Authorization.find_by_auth(auth)
         @auth = Authorization.create_with_auth(auth)

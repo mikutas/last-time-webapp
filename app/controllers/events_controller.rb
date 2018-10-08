@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:destroy, :edit, :update]
 
   def index
-    @events = @user.events.paginate(page: params[:page]).order("occurred_at DESC")
+    @events = @user.events.paginate(page: params[:page]).order('occurred_at DESC')
     if params[:event]
       @events = @events.search(params[:event][:term])
     end
@@ -12,16 +12,16 @@ class EventsController < ApplicationController
   def create
     @event = @user.events.build(event_params)
     if @event.save
-      flash[:success] = "Event created!"
+      flash[:success] = 'Event created!'
     else
-      flash[:danger] = "Failed to create event."
+      flash[:danger] = 'Failed to create event.'
     end
     redirect_to user_events_path(@user.id)
   end
 
   def destroy
     @event.destroy
-    flash[:success] = "Event deleted."
+    flash[:success] = 'Event deleted.'
     redirect_to user_events_path(@user.id)
   end
 
