@@ -12,11 +12,11 @@
           <%= @event.title %>
         <% end %>
       </h5>
-    <section class="forms">
+    <section>
       <div id="edit_form"></div>
-      <div>
-        <%= render "shared/history_form", {event: @event} %>
-      </div>
+    </section>
+    <section class="forms">
+      <%= render "shared/history_form", {event: @event} %>
     </section>
   </aside>
   <div class="col-8">

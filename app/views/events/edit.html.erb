@@ -4,16 +4,18 @@
     <section class="user_info">
       <h1>
         <%= link_to user_events_path(@event.user.id) do %>
-          <i class="fa fa-step-backward"></i> Back
+          <i class="fa fa-step-backward"> Back</i>
         <% end %>
       </h1>
       <h1>
-        <i class="fa fa-calendar"></i>
-        <%= @event.title %>
+        <i class="fa fa-calendar"> <%= @event.title %></i>
       </h1>
     </section>
     <section>
       <%= render "shared/edit_event_form", event: @event %>
+    </section>
+    <section>
+      <%= render "shared/history_form", {event: @event} %>
     </section>
   </aside>
   <div class="col-8">
@@ -22,7 +24,9 @@
       <ol class="events">
         <%= render @histories %>
       </ol>
-      <%= will_paginate @histories %>
+      <div class="d-flex flex-column align-items-center">
+        <%= will_paginate @histories, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
     <% end %>
   </div>
 </div>
