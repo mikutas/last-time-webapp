@@ -4,11 +4,11 @@
     <section class="user_info">
       <h1>
         <%= link_to user_events_path(@event.user.id) do %>
-          <i class="fa fa-step-backward"> Back</i>
+          <span class="fa fa-step-backward"> Back</span>
         <% end %>
       </h1>
       <h1>
-        <i class="fa fa-calendar"> <%= @event.title %></i>
+        <span class="fa fa-calendar"> <%= @event.title %></span>
       </h1>
     </section>
     <section>

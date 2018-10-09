@@ -3,8 +3,8 @@
   <span class="timestamp">
     <%= pluralize((Date.current - (history.occurred_at.to_date)).numerator, "day") %> ago
     <% if current_user?(history.event.user) %>
-      <%= link_to user_event_history_path(history.event.user.id, history.event.id, history.id), method: :delete, data: { confirm: "You sure?" }, class: "fa fa-trash" do %>
-        delete
+      <%= link_to user_event_history_path(history.event.user.id, history.event.id, history.id), method: :delete, data: { confirm: "You sure?" } do %>
+        <span class="fa fa-trash"> delete</span>
       <% end %>
     <% end %>
   </span>
