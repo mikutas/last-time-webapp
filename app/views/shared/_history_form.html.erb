@@ -1,6 +1,6 @@
-<%= form_for History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
+<%= form_with model: History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
   <%= render "shared/datetimepicker", {f: f} %>
-  <%= f.hidden_field :event_id, :value => event.id %>
+  <%= f.hidden_field :event_id, value: event.id %>
   <%= f.button class: "btn btn-secondary" do %>
     <i class="fa fa-plus"> Add date</i>
   <% end %>
