@@ -3,20 +3,20 @@
   <aside class="col-4">
     <section class="user_info">
       <h5>
-        <%= link_to user_events_path(@event.user.id), class: "fa fa-step-backward" do %>
-          Back
+        <%= link_to user_events_path(@event.user.id) do %>
+          <span class="fa fa-step-backward"> Back</span>
         <% end %>
       </h5>
       <h5>
-        <%= link_to edit_user_event_path(@event.user.id, @event.id), remote: true, class: "fa fa-calendar" do %>
-          <%= @event.title %>
+        <%= link_to edit_user_event_path(@event.user.id, @event.id), remote: true do %>
+          <span class="fa fa-calendar"> <%= @event.title %></span>
         <% end %>
       </h5>
-    <section class="forms">
+    <section>
       <div id="edit_form"></div>
-      <div>
-        <%= render "shared/history_form", {event: @event} %>
-      </div>
+    </section>
+    <section class="forms">
+      <%= render "shared/history_form", {event: @event} %>
     </section>
   </aside>
   <div class="col-8">

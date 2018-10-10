@@ -1,15 +1,15 @@
 <li id="event-<%= event.id %>">
   <span class="title">
-    <%= link_to user_event_histories_path(event.user.id, event.id), class: "fa fa-calendar" do %>
-      <%= event.title%>
+    <%= link_to user_event_histories_path(event.user.id, event.id) do %>
+      <span class="fa fa-calendar"> <%= event.title%></span>
     <% end %>
   </span>
   <span class="timestamp">
     <%= pluralize((Date.current - (event.occurred_at.to_date)).numerator, "day") %> ago /
     <%= pluralize(event.histories.count, "time") %>
     <% if current_user?(event.user) %>
-      <%= link_to user_event_path(event.user.id, event.id), method: :delete , data: { confirm: "You sure?" }, class: "fa fa-trash" do %>
-        delete
+      <%= link_to user_event_path(event.user.id, event.id), method: :delete , data: { confirm: "You sure?" } do %>
+        <span class="fa fa-trash"> delete</span>
       <% end %>
     <% end %>
   </span>
