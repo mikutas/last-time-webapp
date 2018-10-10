@@ -24,12 +24,15 @@ class App extends Component {
       'Clear': ''
     };
 
+    let e = document.getElementById('popup-picker');
+    const resource = e.getAttribute('data-type');
+
     return (
       <DatetimePickerTrigger
-        shortcuts={shortcuts} 
+        shortcuts={shortcuts}
         moment={this.state.moment}
         onChange={this.handleChange}>
-        <input class="form-control" type="text" value={this.state.moment.format('YYYY/MM/DD HH:mm')} />
+        <input className="form-control" type="text" name={`${resource}[occurred_at]`} value={this.state.moment.format('YYYY/MM/DD HH:mm')} onChange={this.handleChange} />
       </DatetimePickerTrigger>
     );
   }
@@ -38,6 +41,6 @@ class App extends Component {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <App />,
-    document.getElementById('app')
+    document.getElementById('popup-picker')
   );
 });
