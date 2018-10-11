@@ -32,7 +32,11 @@ class App extends Component {
         shortcuts={shortcuts}
         moment={this.state.moment}
         onChange={this.handleChange}>
-        <input className="form-control" type="text" name={`${resource}[occurred_at]`} value={this.state.moment.format('YYYY/MM/DD HH:mm')} onChange={this.handleChange} />
+        <input className="form-control"
+               type="text"
+               name={`${resource}[occurred_at]`}
+               value={(this.state.moment) ? this.state.moment.format('YYYY/MM/DD HH:mm') : ''}
+               onChange={this.handleChange} />
       </DatetimePickerTrigger>
     );
   }
