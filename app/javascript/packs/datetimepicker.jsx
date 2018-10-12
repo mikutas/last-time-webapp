@@ -42,9 +42,6 @@ class App extends Component {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <App />,
-    document.getElementById('popup-picker')
-  );
-});
+ReactDOM.render(
+  <App />, document.getElementById('popup-picker')
+);
