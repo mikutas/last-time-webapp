@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     @auth = Authorization.find_by_auth(auth)
     if @auth
-      @auth.user.update_email(email: auth['info']['email'])
+      @auth.user.update_email(auth['info']['email'])
     else
       @auth = Authorization.create_with_auth!(auth)
     end
