@@ -13,6 +13,6 @@ class User < ApplicationRecord
   end
 
   def update_email(email_from_auth)
-    email.casecmp(email_from_auth) != 0 && update_attributes(email: email_from_auth)
+    email.casecmp(email_from_auth) != 0 && update(email: email_from_auth)
   end
 end
