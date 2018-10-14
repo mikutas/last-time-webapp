@@ -66,9 +66,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 0, @user.authorizations.count
   end
 
-  test 'create_with_auth should create valid user' do
+  test 'create_with_auth! should create valid user' do
     auth = OmniAuth.config.mock_auth[:google_oauth2]
-    assert User.create_with_auth(auth)
+    assert User.create_with_auth!(auth)
   end
 
   test 'update_email should update email if necessary' do
