@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     end
     user = @auth.user
     log_in user
-    redirect_to user_events_path(user.id)
+    redirect_back_or user_events_path(user.id)
   end
 
   def destroy
