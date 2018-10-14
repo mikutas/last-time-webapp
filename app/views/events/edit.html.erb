@@ -18,15 +18,5 @@
       <%= render "shared/history_form", {event: @event} %>
     </section>
   </aside>
-  <div class="col-8">
-    <% if @event.histories.any? %>
-      <h3><%= pluralize(@event.histories.count, "date") %></h3>
-      <ol class="events">
-        <%= render @histories %>
-      </ol>
-      <div class="d-flex flex-column align-items-center">
-        <%= will_paginate @histories, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "shared/histories", { histories: @histories } %>
 </div>
