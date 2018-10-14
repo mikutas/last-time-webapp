@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
 
   def self.create_with_auth!(auth)
-    self.create(email: auth['info']['email'])
+    create(email: auth['info']['email'])
   end
 end
