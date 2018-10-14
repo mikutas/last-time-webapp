@@ -8,26 +8,13 @@
         <% end %>
       </h5>
       <h5>
-        <%= link_to edit_user_event_path(@event.user.id, @event.id), remote: true do %>
+        <%= link_to edit_user_event_path(@event.user.id, @event.id) do %>
           <span class="fa fa-calendar"> <%= @event.title %></span>
         <% end %>
       </h5>
-    <section>
-      <div id="edit_form"></div>
-    </section>
     <section class="forms">
       <%= render "shared/history_form", {event: @event} %>
     </section>
   </aside>
-  <div class="col-8">
-    <% if @event.histories.any? %>
-      <h3><%= pluralize(@event.histories.count, "time") %></h3>
-      <ol class="events">
-        <%= render @histories %>
-      </ol>
-      <div class="d-flex flex-column align-items-center">
-        <%= will_paginate @histories, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "shared/histories", { histories: @histories } %>
 </div>
