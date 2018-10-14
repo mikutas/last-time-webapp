@@ -24,12 +24,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.html{
-        @histories = @event.histories.paginate(page: params[:page])
-      }
-      format.js
-    end
+    @histories = @event.histories.paginate(page: params[:page])
   end
 
   def update
