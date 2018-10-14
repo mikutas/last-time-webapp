@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    flash[:danger] = 'Failed to update event.' unless @event.update_attributes(event_params)
+    flash[:danger] = 'Failed to update event.' unless @event.update(event_params)
     redirect_to user_event_histories_path(@event.user.id, @event.id)
   end
 
