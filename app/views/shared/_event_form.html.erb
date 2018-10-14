@@ -1,6 +1,6 @@
 <%= form_with model: Event.new, url: user_events_path(user.id) do |f| %>
   <%= f.text_field :title, class: "form-control", placeholder: "Event title" %>
-  <%= render "shared/datetimepicker", {resource: "event"} %>
+  <%= render "shared/datetimepicker", resource: "event" %>
   <%= f.button class: "btn btn-secondary" do %>
     <span class="fa fa-pencil"> Create event</span>
   <% end %>

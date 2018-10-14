@@ -1,5 +1,5 @@
 <%= form_with model: History.new, url: user_event_histories_path(event.user.id, event.id) do |f| %>
-  <%= render "shared/datetimepicker", {resource: "history"} %>
+  <%= render "shared/datetimepicker", resource: "history" %>
   <%= f.button class: "btn btn-secondary" do %>
     <span class="fa fa-plus"> Add date</span>
   <% end %>
