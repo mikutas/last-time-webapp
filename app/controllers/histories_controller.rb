@@ -1,5 +1,5 @@
 class HistoriesController < ApplicationController
-  before_action :logged_in_user, :correct_user, :set_event
+  before_action :logged_in_user, :set_user, :correct_user, :set_event
   before_action :set_history, only: [:destroy]
 
   def index
@@ -41,12 +41,7 @@ class HistoriesController < ApplicationController
       @history = @event.histories.find(params[:id])
     end
 
-    # 正しいユーザーかどうか確認
-    def correct_user
+    def set_user
       @user = User.find(params[:user_id])
-      unless current_user?(@user)
-        flash[:danger] = 'Wrong user.'
-        redirect_to root_url
-      end
     end
 end
