@@ -1,12 +1,10 @@
 class EventsController < ApplicationController
-  before_action :logged_in_user, :correct_user
-  before_action :set_event, only: [:destroy, :edit, :update]
+  before_action :logged_in_user, :set_user, :correct_user
+  before_action :set_event, only: %i[destroy edit update]
 
   def index
     @events = @user.events.paginate(page: params[:page]).order('occurred_at DESC')
-    if params[:event]
-      @events = @events.search(params[:event][:term])
-    end
+    params[:event] && @events = @events.search(params[:event][:term])
   end
 
   def create
@@ -49,12 +47,7 @@ class EventsController < ApplicationController
       @event = @user.events.find(params[:id])
     end
 
-    # 正しいユーザーかどうか確認
-    def correct_user
+    def set_user
       @user = User.find(params[:user_id])
-      unless current_user?(@user)
-        flash[:danger] = 'Wrong user.'
-        redirect_to root_url
-      end
     end
 end
