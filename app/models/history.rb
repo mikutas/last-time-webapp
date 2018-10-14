@@ -8,10 +8,10 @@ class History < ApplicationRecord
   private
 
     def update_event_after_save
-      self.event.update(occurred_at: self.event.histories.first.occurred_at)
+      event.update(occurred_at: event.histories.first.occurred_at)
     end
 
     def update_event_before_destroy
-      self.event.update(occurred_at: self.event.histories.where.not(id: self.id).first.occurred_at)
+      event.update(occurred_at: event.histories.where.not(id: id).first.occurred_at)
     end
 end
