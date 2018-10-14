@@ -15,8 +15,8 @@
       <%= render "shared/edit_event_form", event: @event %>
     </section>
     <section>
-      <%= render "shared/history_form", {event: @event} %>
+      <%= render "shared/history_form", event: @event %>
     </section>
   </aside>
-  <%= render "shared/histories", { histories: @histories } %>
+  <%= render "shared/histories", histories: @histories %>
 </div>
