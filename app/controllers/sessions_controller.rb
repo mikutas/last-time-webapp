@@ -3,14 +3,14 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     if auth.blank?
       flash.now[:danger] = 'Authorization failed.'
-      redirect_to root_url
+      return redirect_to root_url
     end
 
     @auth = Authorization.find_by_auth(auth)
     if @auth
       @auth.user.update_email(email: auth['info']['email'])
     else
-      @auth = Authorization.create_with_auth(auth)
+      @auth = Authorization.create_with_auth!(auth)
     end
     user = @auth.user
     log_in user
