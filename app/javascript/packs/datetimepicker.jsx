@@ -36,7 +36,8 @@ class App extends Component {
                type="text"
                name={`${resource}[occurred_at]`}
                value={(this.state.moment) ? this.state.moment.format('YYYY/MM/DD HH:mm') : ''}
-               onChange={this.handleChange} />
+               onChange={this.handleChange}
+               readOnly />
       </DatetimePickerTrigger>
     );
   }
