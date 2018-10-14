@@ -1,0 +1,7 @@
+orange_one:
+  occurred_at: <%= 1.days.ago %>
+  event: orange
+
+orange_two:
+  occurred_at: <%= 2.days.ago %>
+  event: orange
