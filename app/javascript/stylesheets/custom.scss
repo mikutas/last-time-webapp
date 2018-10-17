@@ -1,7 +1,5 @@
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -18,17 +16,6 @@ section {
   overflow: visible;
 }
 
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,19 +27,6 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 /* header */
@@ -68,10 +42,6 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  small {
-    float: left;
-  }
 }
 
 /* miscellaneous */
@@ -87,29 +57,9 @@ footer {
 /* sidebar */
 
 aside {
-  section.user_info {
-    margin-top: 20px;
-    word-wrap: break-word;
-  }
   section {
     padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
+    word-wrap: break-word;
   }
 }
 
@@ -120,24 +70,6 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  .form-control {
-    color: $gray-medium-light;
-  }
 }
 
 /* events */
@@ -154,31 +86,8 @@ input {
     display: block;
     float: none;
     word-wrap: break-word;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
   }
   .timestamp {
     display: block;
-  }
-  .glyphicon glyphicon-tag {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
-
-span.picture {
-  margin-top: 10px;
-  input {
-    border: 0;
   }
 }
