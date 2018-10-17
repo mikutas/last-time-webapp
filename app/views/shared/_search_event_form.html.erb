@@ -1,9 +1,9 @@
 <%= form_with scope: :event, url: user_events_path(user.id), method: :get, class: "form-group" do |f| %>
   <div class="row">
-    <div class="col-10">
+    <div class="col-md-10">
       <%= f.text_field :term, class: "form-control" %>
     </div>
-    <div class="col-2">
+    <div class="col-md-2">
       <%= f.button name: nil, class: "btn btn-info" do %>
         <span class="fa fa-search"> Search</span>
       <% end %>
