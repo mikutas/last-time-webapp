@@ -1,12 +1,12 @@
-<%= form_with scope: :event, url: user_events_path(user.id), method: :get, class: "form-group" do |f| %>
-  <div class="row">
-    <div class="col-md-10">
-      <%= f.text_field :term, class: "form-control" %>
-    </div>
-    <div class="col-md-2">
-      <%= f.button name: nil, class: "btn btn-info" do %>
-        <span class="fa fa-search"> Search</span>
-      <% end %>
+<%= form_with scope: :event, url: user_events_path(user.id), method: :get do |f| %>
+  <div class="form-group">
+    <div class="input-group mb-3">
+      <%= f.text_field :term, class: "form-control", "aria-describedby": "button-addon2" %>
+      <div class="input-group-append">
+        <%= f.button name: nil, class: "btn btn-info", id: "button-addon2" do %>
+          <span class="fa fa-search"> Search</span>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
