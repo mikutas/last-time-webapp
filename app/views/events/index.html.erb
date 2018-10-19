@@ -1,6 +1,6 @@
 <% provide(:title, "My events") %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-lg-4">
     <section>
       <h5><span class="fa fa-user"></span> <%= @user.email %></h5>
     </section>
@@ -8,7 +8,7 @@
       <%= render "shared/event_form", user: @user %>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-lg-8">
     <%= render "shared/search_event_form", user: @user %>
 
     <% if @user.events.any? %>
