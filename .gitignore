@@ -23,9 +23,6 @@
 # Ignore Spring files.
 /spring/*.pid
 
-# Ignore encrypted secrets key file.
-config/secrets.yml.key
-
 # Ignore coverage report generated at local
 /coverage/
 
