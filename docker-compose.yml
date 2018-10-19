@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  rails: &app_base
+    build:
+      context: .
+      dockerfile: "Dockerfile.dev"
+    command: bin/rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/last-time-webapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  webpack:
+    <<: *app_base
+    command: "bin/webpack-dev-server"
+    ports:
+      - "3035:3035"
+    depends_on:
+      - rails
+    tty: false
+    stdin_open: false
