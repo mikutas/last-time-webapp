@@ -2,7 +2,7 @@ FROM node:8.12.0-stretch as node
 FROM ruby:2.5.1-slim-stretch
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
-    build-essential libpq-dev
+    build-essential libpq-dev git
 
 ENV YARN_VERSION 1.9.4
 COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
