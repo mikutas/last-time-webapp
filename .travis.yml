@@ -16,7 +16,7 @@ install:
   - docker-compose build
 before_script:
   - docker-compose run rails bin/yarn install
-  - docker-compose run rails bin/rails webpacker:compile RAILS_ENV=test
-  - docker-compose run rails bin/rails db:create RAILS_ENV=test
+  - docker-compose run -e RAILS_ENV=test rails bin/rails webpacker:compile
+  - docker-compose run -e RAILS_ENV=test rails bin/rails db:create
 script:
-  - docker-compose run rails bin/rails test RAILS_ENV=test
+  - docker-compose run -e RAILS_ENV=test -e CI=true -e CODECOV_TOKEN=$CODECOV_TOKEN rails bin/rails test
