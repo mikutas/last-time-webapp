@@ -15,4 +15,3 @@ WORKDIR /last-time-webapp
 COPY ./Gemfile /last-time-webapp/Gemfile
 COPY ./Gemfile.lock /last-time-webapp/Gemfile.lock
 RUN bundle install
-COPY . /last-time-webapp
