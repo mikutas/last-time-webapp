@@ -15,6 +15,7 @@ services:
 install:
   - docker-compose build
 before_script:
+  - docker-compose run rails bundle install
   - docker-compose run rails bin/yarn install
   - docker-compose run -e RAILS_ENV=test rails bin/rails webpacker:compile
   - docker-compose run -e RAILS_ENV=test rails bin/rails db:create
