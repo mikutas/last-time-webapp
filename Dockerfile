@@ -13,5 +13,3 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn && \
 ARG appname=/last-time-webapp
 RUN mkdir ${appname}
 WORKDIR ${appname}
-COPY ./Gemfile ${appname}
-COPY ./Gemfile.lock ${appname}
