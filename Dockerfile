@@ -10,6 +10,4 @@ COPY --from=node /usr/local/bin/node /usr/local/bin/
 RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn && \
     ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg
 
-ARG appname=/last-time-webapp
-RUN mkdir ${appname}
-WORKDIR ${appname}
+WORKDIR /last-time-webapp
