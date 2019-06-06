@@ -21,7 +21,7 @@ gem 'faker', '1.7.3'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'omniauth-google-oauth2', '0.5.2'
-gem 'webpacker', '4.0.2'
+gem 'webpacker', '4.0.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
