@@ -1,0 +1,10 @@
+.git
+.gitignore
+.gitattributes
+README.md
+log/*
+tmp/*
+config/master.key
+public/packs
+public/packs-test
+node_modules
