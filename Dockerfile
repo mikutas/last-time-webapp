@@ -1,8 +1,9 @@
 FROM node:10.15.1-stretch-slim as node
 FROM ruby:2.6.3-slim-stretch
-RUN apt-get update -qq && \
-    apt-get install -y --no-install-recommends \
-    build-essential libpq-dev git
+RUN apt-get update -qq \
+ && apt-get install -y --no-install-recommends \
+    build-essential libpq-dev git \
+ && rm -rf /var/lib/apt/lists
 
 ENV YARN_VERSION 1.13.0
 COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
