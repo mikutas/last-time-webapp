@@ -15,9 +15,9 @@ services:
 install:
   - docker-compose build
 before_script:
-  - docker-compose run rails bundle install
-  - docker-compose run rails bin/yarn install
-  - docker-compose run -e RAILS_ENV=test rails bin/rails webpacker:compile
-  - docker-compose run -e RAILS_ENV=test rails bin/rails db:create
+  - docker-compose run web bundle install
+  - docker-compose run web bin/yarn install
+  - docker-compose run -e RAILS_ENV=test web bin/rails webpacker:compile
+  - docker-compose run -e RAILS_ENV=test web bin/rails db:create
 script:
-  - docker-compose run -e RAILS_ENV=test -e CI=true -e CODECOV_TOKEN=$CODECOV_TOKEN rails bin/rails test
+  - docker-compose run -e RAILS_ENV=test -e CI=true -e CODECOV_TOKEN=$CODECOV_TOKEN web bin/rails test

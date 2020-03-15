@@ -4,7 +4,7 @@ services:
     image: postgres
     volumes:
       - db_data:/var/lib/postgresql/data
-  rails: &app_base
+  web: &app_base
     build:
       context: .
       dockerfile: "Dockerfile"
@@ -22,7 +22,7 @@ services:
     ports:
       - "3035:3035"
     depends_on:
-      - rails
+      - web
     tty: false
     stdin_open: false
 
