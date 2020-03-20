@@ -1,4 +1,4 @@
-FROM node:10.16.0-stretch-slim as node
+FROM node:12.16.1-stretch-slim as node
 FROM ruby:2.6.5-slim-stretch
 RUN apt-get update -qq \
  && apt-get install -y --no-install-recommends \
