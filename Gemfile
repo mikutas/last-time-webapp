@@ -11,7 +11,7 @@ ruby '2.6.5'
 gem 'rails', '5.2.2.1'
 gem 'bootsnap', '1.4.6'
 # Use Puma as the app server
-gem 'puma', '3.12.4'
+gem 'puma', '4.3.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.7.0'
 #  Use postgresql as the database for Active Record
