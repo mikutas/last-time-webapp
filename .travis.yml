@@ -1,6 +1,10 @@
 notifications:
   email: false
 
+branches:
+  only:
+  - master
+
 env:
   - DOCKER_COMPOSE_VERSION=1.25.4
 before_install:
