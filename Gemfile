@@ -15,7 +15,7 @@ gem 'puma', '4.3.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.10.0'
 #  Use postgresql as the database for Active Record
-gem 'pg', '0.18.4'
+gem 'pg', '1.2.3'
 
 gem 'faker', '1.7.3'
 gem 'will_paginate',           '3.3.0'
