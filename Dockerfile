@@ -1,5 +1,5 @@
 FROM node:12.16.1-stretch-slim as node
-FROM ruby:2.6.5-slim-stretch
+FROM ruby:2.6.6-slim-stretch
 RUN apt-get update -qq \
  && apt-get install -y --no-install-recommends \
     build-essential libpq-dev git \
