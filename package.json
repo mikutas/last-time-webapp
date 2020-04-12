@@ -12,7 +12,7 @@
     "fstream": "1.0.12",
     "jquery": "3.4.0",
     "moment": "2.24.0",
-    "popper.js": "1.15.0",
+    "popper.js": "1.16.1",
     "prop-types": "15.7.2",
     "rails-ujs": "5.2.3",
     "rc-datetime-picker": "1.6.1",
