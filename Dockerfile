@@ -7,7 +7,7 @@ RUN apt-get update -qq \
     build-essential libpq-dev git \
  && rm -rf /var/lib/apt/lists
 
-ENV YARN_VERSION 1.22.0
+ENV YARN_VERSION 1.22.4
 COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
 COPY --from=node /usr/local/bin/node /usr/local/bin/
 RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn && \
