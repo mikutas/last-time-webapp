@@ -1,4 +1,6 @@
 FROM node:12.16.1-stretch-slim as node
+RUN npm -v \
+ && yarn -v
 FROM ruby:2.6.6-slim-stretch
 RUN apt-get update -qq \
  && apt-get install -y --no-install-recommends \
