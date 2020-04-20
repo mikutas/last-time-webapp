@@ -50,7 +50,7 @@ GEM
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.4)
-    byebug (11.1.1)
+    byebug (11.1.2)
     codecov (0.1.16)
       json
       simplecov
@@ -219,7 +219,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (= 1.4.6)
   bootstrap-will_paginate (= 1.0.0)
-  byebug (= 11.1.1)
+  byebug (= 11.1.2)
   codecov
   faker (= 2.11.0)
   guard (= 2.16.2)
