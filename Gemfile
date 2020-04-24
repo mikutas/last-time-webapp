@@ -28,7 +28,7 @@ gem 'webpacker', '5.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '11.1.1', platform: :mri
+  gem 'byebug', '11.1.3', platform: :mri
 end
 
 group :development do
