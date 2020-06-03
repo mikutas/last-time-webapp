@@ -1,4 +1,4 @@
-FROM node:12.17.0-stretch-slim as node
+FROM node:14.4.0-stretch-slim as node
 RUN npm -v \
  && yarn -v
 FROM ruby:2.6.6-slim-stretch
