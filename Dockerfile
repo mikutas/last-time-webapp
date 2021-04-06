@@ -1,7 +1,7 @@
 FROM node:12.18.3-stretch-slim as node
 RUN npm -v \
  && yarn -v
-FROM ruby:2.6.6-slim-stretch
+FROM ruby:2.6.7-slim-stretch
 RUN apt-get update -qq \
  && apt-get install -y --no-install-recommends \
     build-essential libpq-dev git \
